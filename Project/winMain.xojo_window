@@ -481,6 +481,9 @@ End
 		  
 		  // Update the list display
 		  lbImages.Cell(lbImages.ListIndex, 0) = sName
+		  
+		  // Dirty the document
+		  self.ContentsChanged = true
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -509,6 +512,9 @@ End
 		  
 		  // Valid state may have changed
 		  lbImages.Invalidate
+		  
+		  // Dirty the document
+		  self.ContentsChanged = true
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -586,6 +592,9 @@ End
 		  end select
 		  
 		  HandleEnabledState
+		  
+		  // Dirty the document
+		  self.ContentsChanged = true
 		End Sub
 	#tag EndEvent
 #tag EndEvents
