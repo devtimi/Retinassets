@@ -121,7 +121,7 @@ Begin ContainerControl ccDetails
       LockRight       =   True
       LockTop         =   True
       Scope           =   2
-      TabIndex        =   6
+      TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
       TextFont        =   "System"
@@ -308,7 +308,7 @@ Begin ContainerControl ccDetails
       LockRight       =   True
       LockTop         =   True
       Scope           =   2
-      TabIndex        =   7
+      TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
       TextFont        =   "System"
