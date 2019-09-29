@@ -215,7 +215,32 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub HandleDelete()
+		  if lbImages.ListIndex < 0 then return
 		  
+		  dim oTag as Data.Image = lbImages.RowTag(lbImages.ListIndex)
+		  if oTag = nil then return
+		  
+		  dim md as new MessageDialog
+		  md.Message = "Delete " + oTag.sName + "?"
+		  md.Explanation = "Are you sure you want to delete " + oTag.sName + "? This action cannot be undone."
+		  
+		  md.ActionButton.Caption = "Delete"
+		  md.CancelButton.Visible = true
+		  
+		  if md.ShowModalWithin(self) = md.ActionButton then
+		    for i as Integer = oDoc.aroImages.Ubound downto 0
+		      if oDoc.aroImages(i).sName = oTag.sName then
+		        // Remove it from the array to delete it
+		        oDoc.aroImages.Remove(i)
+		        
+		      end
+		      
+		    next i
+		    
+		    // Reload the list
+		    LoadList
+		    
+		  end
 		End Sub
 	#tag EndMethod
 
