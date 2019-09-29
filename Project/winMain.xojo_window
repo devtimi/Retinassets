@@ -234,8 +234,25 @@ End
 	#tag EndMenuHandler
 
 
+	#tag Method, Flags = &h21
+		Private Sub CheckForIncomplete()
+		  for each oImg as Data.Image in oDoc.aroImages
+		    if oImg.IsComplete = false then
+		      Alert("Incomplete Items", "There are incomplete items in this document. " + _
+		      "Incomplete items are not written to the CSS. Please correct any items listed in red.")
+		      exit for oImg
+		      
+		    end
+		    
+		  next oImg
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub GenerateCSS()
+		  // Check for and notify the user of incomplete items
+		  CheckForIncomplete
+		  
 		  dim dlgSave as new SaveAsDialog
 		  dlgSave.Filter = ftDocs.CSS
 		  dlgSave.PromptText = "Select a location to save the CSS."
