@@ -11,6 +11,16 @@ Inherits Window
 	#tag EndMenuHandler
 
 
+	#tag Method, Flags = &h1
+		Protected Sub Alert(sMsg as String, sExp as String)
+		  dim md as new MessageDialog
+		  md.Message = sMsg
+		  md.Explanation = sExp
+		  
+		  call md.ShowModalWithin(self)
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub TitlebarDocument(assigns fDoc as FolderItem)
 		  if fDoc = nil or fDoc.Exists = false then
