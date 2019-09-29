@@ -638,12 +638,12 @@ End
 		        Beep
 		        
 		      else
-		      me.Enabled = false
-		      RaiseEvent RequestName(sTest)
-		      me.Enabled = true
+		        me.Enabled = false
+		        RaiseEvent RequestName(sTest)
+		        me.Enabled = true
+		        
+		      end
 		      
-		    end
-		    
 		    end
 		    
 		    return true

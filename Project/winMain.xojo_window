@@ -234,6 +234,39 @@ End
 	#tag EndMenuHandler
 
 
+	#tag Method, Flags = &h0
+		Sub GenerateCSS()
+		  dim dlgSave as new SaveAsDialog
+		  dlgSave.Filter = ftDocs.CSS
+		  dlgSave.PromptText = "Select a location to save the CSS."
+		  
+		  // If saved, set up the document name
+		  if fSave <> nil and fSave.Exists then
+		    dim arsParts() as String = Split(fSave.Name, ".")
+		    if arsParts.Ubound > 0 then
+		      dlgSave.SuggestedFileName = arsParts(0) + ".css"
+		      
+		    end
+		    
+		  end
+		  
+		  dim fCSS as FolderItem = dlgSave.ShowModalWithin(self)
+		  
+		  // Check for user cancel
+		  if fCSS = nil then return
+		  
+		  try
+		    dim tos as TextOutputStream = TextOutputStream.Create(fCSS)
+		    tos.Write(oDoc.GenerateCSS)
+		    tos.Close
+		    
+		  catch e as IOException
+		    Alert("Write Failed", e.Message)
+		    
+		  end
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub HandleAdd()
 		  // Create a new image
@@ -516,6 +549,13 @@ End
 		  end select
 		  
 		  HandleEnabledState
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnGenerate
+	#tag Event
+		Sub Action()
+		  GenerateCSS
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -13,4 +13,18 @@
 		Imported=False
 	#tag EndFileType
 
+	#tag FileType
+		CodeName=CSS
+		Extension=.css
+		Flags=&h0
+		MacCreator=????
+		MacType=TEXT
+		Name=text/css
+		UTI=
+		UTIConformsTo=public.data, public.content
+		Description=
+		MimeType=
+		Imported=True
+	#tag EndFileType
+
 #tag EndFileTypeSet
