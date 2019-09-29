@@ -481,7 +481,7 @@ Begin ContainerControl ccDetails
          AcceptTabs      =   False
          Alignment       =   0
          AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   True
+         AutomaticallyCheckSpelling=   False
          BackColor       =   &cFFFFFF00
          Bold            =   False
          Border          =   True
@@ -517,7 +517,7 @@ Begin ContainerControl ccDetails
          Text            =   ""
          TextColor       =   &c00000000
          TextFont        =   "#App.kMonospacedFont"
-         TextSize        =   11.0
+         TextSize        =   10.0
          TextUnit        =   0
          Top             =   217
          Transparent     =   False
