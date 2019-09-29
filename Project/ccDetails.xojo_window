@@ -109,7 +109,7 @@ Begin ContainerControl ccDetails
       Bold            =   False
       Caption         =   "Source"
       Enabled         =   True
-      Height          =   100
+      Height          =   136
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -152,7 +152,7 @@ Begin ContainerControl ccDetails
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   0
+         TabIndex        =   4
          TabPanelIndex   =   0
          TabStop         =   True
          Text            =   "1x src:"
@@ -161,7 +161,7 @@ Begin ContainerControl ccDetails
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   63
+         Top             =   96
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -196,7 +196,7 @@ Begin ContainerControl ccDetails
          Password        =   False
          ReadOnly        =   False
          Scope           =   2
-         TabIndex        =   1
+         TabIndex        =   5
          TabPanelIndex   =   0
          TabStop         =   True
          Text            =   ""
@@ -204,7 +204,7 @@ Begin ContainerControl ccDetails
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   62
+         Top             =   95
          Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
@@ -231,7 +231,7 @@ Begin ContainerControl ccDetails
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   2
+         TabIndex        =   6
          TabPanelIndex   =   0
          TabStop         =   True
          Text            =   "2x src:"
@@ -240,7 +240,7 @@ Begin ContainerControl ccDetails
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   96
+         Top             =   129
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -275,6 +275,164 @@ Begin ContainerControl ccDetails
          Password        =   False
          ReadOnly        =   False
          Scope           =   2
+         TabIndex        =   7
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   128
+         Transparent     =   False
+         Underline       =   False
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   232
+      End
+      Begin Label lblHeight
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   21
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   2
+         Selectable      =   False
+         TabIndex        =   0
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "Height:"
+         TextAlign       =   2
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   63
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   57
+      End
+      Begin TextField txtHeight
+         AcceptTabs      =   False
+         Alignment       =   0
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         CueText         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   22
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   90
+         LimitText       =   0
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Mask            =   "999999"
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   2
+         TabIndex        =   1
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   62
+         Transparent     =   False
+         Underline       =   False
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   79
+      End
+      Begin Label lblWidth
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   181
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   2
+         Selectable      =   False
+         TabIndex        =   2
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "Width:"
+         TextAlign       =   2
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   62
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   50
+      End
+      Begin TextField txtWidth
+         AcceptTabs      =   False
+         Alignment       =   0
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         CueText         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   22
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   243
+         LimitText       =   0
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Mask            =   "999999"
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   2
          TabIndex        =   3
          TabPanelIndex   =   0
          TabStop         =   True
@@ -283,12 +441,12 @@ Begin ContainerControl ccDetails
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   95
+         Top             =   62
          Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
-         Width           =   232
+         Width           =   79
       End
    End
    Begin GroupBox grpCSS
@@ -296,7 +454,7 @@ Begin ContainerControl ccDetails
       Bold            =   False
       Caption         =   "Custom CSS"
       Enabled         =   True
-      Height          =   186
+      Height          =   150
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -314,7 +472,7 @@ Begin ContainerControl ccDetails
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   145
+      Top             =   181
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -331,7 +489,7 @@ Begin ContainerControl ccDetails
          DataSource      =   ""
          Enabled         =   True
          Format          =   ""
-         Height          =   130
+         Height          =   94
          HelpTag         =   ""
          HideSelection   =   True
          Index           =   -2147483648
@@ -361,7 +519,7 @@ Begin ContainerControl ccDetails
          TextFont        =   "#App.kMonospacedFont"
          TextSize        =   11.0
          TextUnit        =   0
-         Top             =   181
+         Top             =   217
          Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
@@ -384,20 +542,28 @@ End
 	#tag Method, Flags = &h0
 		Sub LoadImage(oImg as Data.Image)
 		  // Clear UI
+		  SetLoading = true
 		  txt1x.Text = ""
 		  txt2x.Text = ""
 		  txtCSS.Text = ""
+		  txtHeight.Text = ""
 		  txtName.Text = ""
+		  txtWidth.Text = ""
+		  SetLoading = false
 		  
 		  // Store image
 		  moImage = oImg
 		  if moImage = nil then return
 		  
 		  // Load UI
+		  SetLoading = true
 		  txt1x.Text = oImg.s1x
 		  txt2x.Text = oImg.s2x
 		  txtCSS.Text = oImg.sCSS
+		  txtHeight.Text = oImg.sHeight
 		  txtName.Text = oImg.sName
+		  txtWidth.Text = oImg.sWidth
+		  SetLoading = false
 		End Sub
 	#tag EndMethod
 
@@ -405,6 +571,19 @@ End
 		Sub SetFocusName()
 		  // Set the focus on the name field
 		  txtName.SetFocus
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub SetLoading(assigns bLoading as Boolean)
+		  dim bEnabled as Boolean = not bLoading
+		  
+		  txt1x.Enabled = bEnabled
+		  txt2x.Enabled = bEnabled
+		  txtCSS.Enabled = bEnabled
+		  txtHeight.Enabled = bEnabled
+		  txtName.Enabled = bEnabled
+		  txtWidth.Enabled = bEnabled
 		End Sub
 	#tag EndMethod
 
@@ -419,6 +598,8 @@ End
 		  moImage.s1x = Trim(txt1x.Text)
 		  moImage.s2x = Trim(txt2x.Text)
 		  moImage.sCSS = Trim(txtCSS.Text)
+		  moImage.sHeight = Trim(txtHeight.Text)
+		  moImage.sWidth = Trim(txtWidth.Text)
 		  
 		  RaiseEvent UpdateProperties(moImage)
 		End Sub
@@ -520,6 +701,52 @@ End
 		  if me.Enabled = false then return
 		  
 		  UpdateProperties
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtHeight
+	#tag Event
+		Function KeyDown(Key As String) As Boolean
+		  dim iAsc as Integer = asc(Key)
+		  
+		  // Return or Enter
+		  if iAsc = 13 or iAsc = 3 then
+		    UpdateProperties
+		    return true
+		    
+		  end
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub LostFocus()
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  UpdateProperties
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtWidth
+	#tag Event
+		Function KeyDown(Key As String) As Boolean
+		  dim iAsc as Integer = asc(Key)
+		  
+		  // Return or Enter
+		  if iAsc = 13 or iAsc = 3 then
+		    UpdateProperties
+		    return true
+		    
+		  end
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub LostFocus()
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  UpdateProperties
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

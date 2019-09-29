@@ -13,7 +13,15 @@ Protected Class Image
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		sHeight As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		sName As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		sWidth As String
 	#tag EndProperty
 
 
