@@ -267,7 +267,7 @@ End
 		    
 		  end
 		  
-		  dim fCSS as FolderItem = dlgSave.ShowModalWithin(self)
+		  dim fCSS as FolderItem = dlgSave.ShowModal
 		  
 		  // Check for user cancel
 		  if fCSS = nil then return
@@ -386,7 +386,7 @@ End
 		    dlgSave.Filter = ftDocs.RetinaAssets
 		    dlgSave.PromptText = "Select a location to save the document."
 		    
-		    fSave = dlgSave.ShowModalWithin(self)
+		    fSave = dlgSave.ShowModal
 		    
 		    // Check for user cancel
 		    if fSave = nil then return
