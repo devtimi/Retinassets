@@ -81,6 +81,18 @@ Protected Class Document
 		    ars1XCSS.Append(kTab + "background: url('" + oImg.s1x + "') no-repeat;")
 		    ars1XCSS.Append(kTab + "height: " + oImg.sHeight + "px;")
 		    ars1XCSS.Append(kTab + "width: " + oImg.sWidth + "px;")
+		    
+		    // Custom CSS
+		    if oImg.sCSS <> "" then
+		      oImg.sCSS = ReplaceLineEndings(oImg.sCSS, EndOfLine.UNIX)
+		      dim arsCustomCSS() as String = Split(oImg.sCSS, EndOfLine.UNIX)
+		      for iCustom as Integer = 0 to arsCustomCSS.Ubound
+		        ars1XCSS.Append(kTab + arsCustomCSS(iCustom))
+		        
+		      next iCustom
+		      
+		    end
+		    
 		    ars1XCSS.Append("}" + EndOfLine)
 		    
 		    // 2x CSS
