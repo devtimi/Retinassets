@@ -318,6 +318,33 @@ End
 
 #tag EndWindowCode
 
+#tag Events lbImages
+	#tag Event
+		Sub Change()
+		  // No Selection
+		  if me.ListIndex < 0 then
+		    ppDetails.Value = 0
+		    HandleEnabledState
+		    return
+		    
+		  end
+		  
+		  // Load selection
+		  dim oTag as Data.Image = me.RowTag(me.ListIndex)
+		  if oTag <> nil then
+		    ctlDetails.LoadImage(oTag)
+		    ppDetails.Value = 1
+		    
+		  else
+		    // Tag was nil?
+		    ppDetails.Value = 0
+		    
+		  end
+		  
+		  HandleEnabledState
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events sgAddDelete
 	#tag Event
 		Sub Action(itemIndex as integer)
@@ -329,6 +356,8 @@ End
 		    HandleDelete
 		    
 		  end select
+		  
+		  HandleEnabledState
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -110,9 +110,22 @@ End
 #tag WindowCode
 	#tag Method, Flags = &h0
 		Sub LoadImage(oImg as Data.Image)
+		  // Clear UI
+		  txtName.Text = ""
 		  
+		  // Store image
+		  moImage = oImg
+		  if moImage = nil then return
+		  
+		  // Load UI
+		  txtName.Text = oImg.sName
 		End Sub
 	#tag EndMethod
+
+
+	#tag Property, Flags = &h21
+		Private moImage As Data.Image
+	#tag EndProperty
 
 
 #tag EndWindowCode
