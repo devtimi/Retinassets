@@ -11,8 +11,6 @@ Inherits Application
 
 	#tag Event
 		Sub Open()
-		  App.AutoQuit = True
-		  
 		  #if TargetMacOS then
 		    FileQuitSeparator.Close
 		    
