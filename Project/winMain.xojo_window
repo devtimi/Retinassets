@@ -489,6 +489,9 @@ End
 		    end
 		    
 		  next i
+		  
+		  // Valid state may have changed
+		  lbImages.Invalidate
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -525,6 +528,23 @@ End
 		  // Always stop that timer
 		  ctlDetails.StopTimer
 		End Sub
+	#tag EndEvent
+	#tag Event
+		Function CellTextPaint(g As Graphics, row As Integer, column As Integer, x as Integer, y as Integer) As Boolean
+		  #pragma unused column
+		  #pragma unused x
+		  #pragma unused y
+		  
+		  // Check the item, make it red if it's incomplete
+		  if row < me.ListCount then
+		    dim oTag as Data.Image = me.RowTag(row)
+		    if oTag <> nil and oTag.IsComplete = false then
+		      g.ForeColor = &cFF0000
+		      
+		    end
+		    
+		  end
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events sgAddDelete

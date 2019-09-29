@@ -19,6 +19,19 @@ Protected Class Image
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function IsComplete() As Boolean
+		  dim bComplete as Boolean = true
+		  bComplete = bComplete and (s1x <> "")
+		  bComplete = bComplete and (s2x <> "")
+		  bComplete = bComplete and (sHeight <> "")
+		  bComplete = bComplete and (sName <> "")
+		  bComplete = bComplete and (sWidth <> "")
+		  
+		  return bComplete
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function ToJSON() As JSONItem
 		  dim jsRep as new JSONItem
 		  jsRep.Value("s1x") = s1x
@@ -124,6 +137,32 @@ Protected Class Image
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="sName"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="s1x"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="s2x"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="sCSS"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="sHeight"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="sWidth"
 			Group="Behavior"
 			Type="String"
 		#tag EndViewProperty

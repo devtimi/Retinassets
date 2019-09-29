@@ -73,6 +73,9 @@ Protected Class Document
 		  dim ars2XCSS() as String
 		  
 		  for each oImg as Data.Image in aroImages
+		    // Do not generate incomplete images
+		    if oImg.IsComplete = false then continue for oImg
+		    
 		    // 1x CSS
 		    ars1XCSS.Append("#" + oImg.sName + " {")
 		    ars1XCSS.Append(kTab + "background: url('" + oImg.s1x + "') no-repeat;")
