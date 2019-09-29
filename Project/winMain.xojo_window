@@ -224,6 +224,16 @@ End
 #tag EndWindow
 
 #tag WindowCode
+	#tag MenuHandler
+		Function FileSave() As Boolean Handles FileSave.Action
+			Save
+			
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+
 	#tag Method, Flags = &h21
 		Private Sub HandleAdd()
 		  // Create a new image
@@ -318,6 +328,36 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub Save()
+		  // Not saved yet
+		  if fSave = nil or fSave.Exists = false then
+		    dim dlgSave as new SaveAsDialog
+		    dlgSave.Filter = ftDocs.RetinaAssets
+		    dlgSave.PromptText = "Select a location to save the document."
+		    
+		    fSave = dlgSave.ShowModalWithin(self)
+		    
+		    // Check for user cancel
+		    if fSave = nil then return
+		    
+		  end
+		  
+		  try
+		    dim tos as TextOutputStream = TextOutputStream.Create(fSave)
+		    tos.Write(oDoc.ToJSON.ToString)
+		    tos.Close
+		    
+		    me.TitlebarDocument = fSave
+		    self.ContentsChanged = false
+		    
+		  catch e as IOException
+		    Alert("Save Failed", e.Message)
+		    
+		  end
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub Show()
 		  HandleEnabledState
@@ -348,6 +388,10 @@ End
 		End Sub
 	#tag EndMethod
 
+
+	#tag Property, Flags = &h0
+		fSave As FolderItem
+	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private moSelection As Data.Image

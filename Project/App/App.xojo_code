@@ -20,10 +20,74 @@ Inherits Application
 		End Sub
 	#tag EndEvent
 
+	#tag Event
+		Sub OpenDocument(item As FolderItem)
+		  // Sanity check
+		  if item = nil or item.Exists = false then
+		    NewDocument
+		    return
+		    
+		  end
+		  
+		  dim sContents as String
+		  
+		  try
+		    dim tis as TextInputStream = TextInputStream.Open(item)
+		    tis.Encoding = Encodings.UTF8
+		    sContents = tis.ReadAll
+		    tis.Close
+		    
+		  catch e as IOException
+		    MsgBox("Document Error" + EndOfLine + EndOfLine + _
+		    "Could not open document. " + e.Message)
+		    return
+		    
+		  end try
+		  
+		  // Check if empty
+		  if sContents = "" then
+		    NewDocument
+		    return
+		    
+		  end
+		  
+		  try
+		    dim jsDoc as new JSONItem(sContents)
+		    
+		    dim oDoc as new Data.Document
+		    oDoc.FromJSON(jsDoc)
+		    
+		    dim oWin as new winMain
+		    oWin.fSave = item
+		    oWin.TitlebarDocument = item
+		    oWin.Show(oDoc)
+		    
+		  catch e as JSONException
+		    // Bad JSON
+		    MsgBox("Document Error" + EndOfLine + EndOfLine + _
+		    "Could not read document. " + e.Message)
+		    
+		  end try
+		End Sub
+	#tag EndEvent
+
 
 	#tag MenuHandler
 		Function FileNew() As Boolean Handles FileNew.Action
 			App.NewDocument
+			
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function FileOpen() As Boolean Handles FileOpen.Action
+			dim f as FolderItem = GetOpenFolderItem(ftDocs.RetinaAssets)
+			if f <> nil and f.Exists = true then
+			OpenDocument(f)
+			
+			end
 			
 			Return True
 			

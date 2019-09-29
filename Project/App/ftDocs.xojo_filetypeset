@@ -2,15 +2,15 @@
 	#tag FileType
 		CodeName=RetinaAssets
 		Extension=.rass
-		Flags=&h0
+		Flags=&h5
 		MacCreator=
 		MacType=
 		Name=Retina Assets Catalog
-		UTI=public.data
-		UTIConformsTo=
+		UTI=
+		UTIConformsTo=public.data
 		Description=
 		MimeType=
-		Imported=True
+		Imported=False
 	#tag EndFileType
 
 #tag EndFileTypeSet
