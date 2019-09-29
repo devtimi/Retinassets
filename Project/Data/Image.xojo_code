@@ -32,6 +32,36 @@ Protected Class Image
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Shared Function ValidName(sName as String) As Boolean
+		  // Validates the name as a CSS selector
+		  // https://pineco.de/css-quick-tip-the-valid-characters-in-a-custom-css-selector/
+		  // Returns True if valid enough for our purposes
+		  // Returns false if invalid for our purposes
+		  
+		  // Can't start with 0-9
+		  dim vFirst as Variant = sName.Left(1)
+		  if vFirst.IsNumeric then return false
+		  
+		  // Can't start with "--"
+		  dim sPrefix as String = sName.Left(2)
+		  if sPrefix = "--" then return false
+		  
+		  // Cant start with "-[0-9]"
+		  dim vPrefix as Variant = sPrefix.Right(1)
+		  if vPrefix.IsNumeric then return false
+		  
+		  // Can only contain letters, numbers, hyphens, underscores
+		  dim rx as new RegEx
+		  rx.SearchPattern = "[^a-zA-Z0-9\-\_]"
+		  
+		  dim rxm as RegExMatch = rx.Search(sName)
+		  
+		  // True if no invalid characters were found
+		  return (rxm = nil)
+		End Function
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h0
 		s1x As String
