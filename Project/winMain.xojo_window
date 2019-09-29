@@ -188,6 +188,38 @@ Begin TPWindow winMain
       Visible         =   True
       Width           =   44
    End
+   Begin PushButton btnGenerate
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Generate"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   480
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   False
+      Scope           =   2
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   363
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
 End
 #tag EndWindow
 
@@ -248,6 +280,9 @@ End
 		Private Sub HandleEnabledState()
 		  // Delete enabled if we have a selection
 		  sgAddDelete.Items(1).Enabled = (lbImages.ListIndex > -1)
+		  
+		  // Generate requires an image
+		  btnGenerate.Enabled = (lbImages.ListCount > 0)
 		End Sub
 	#tag EndMethod
 

@@ -16,6 +16,23 @@ Begin Menu mbMain
          AutoEnable = True
          Visible = True
       End
+      Begin MenuItem FileOpen
+         SpecialMenu = 0
+         Text = "Open"
+         Index = -2147483648
+         ShortcutKey = "O"
+         Shortcut = "Cmd+O"
+         MenuModifier = True
+         AutoEnable = True
+         Visible = True
+      End
+      Begin MenuItem UntitledSeparator
+         SpecialMenu = 0
+         Text = "-"
+         Index = -2147483648
+         AutoEnable = True
+         Visible = True
+      End
       Begin MenuItem FileClose
          SpecialMenu = 0
          Text = "Close"
@@ -23,6 +40,23 @@ Begin Menu mbMain
          ShortcutKey = "w"
          Shortcut = "Cmd+w"
          MenuModifier = True
+         AutoEnable = True
+         Visible = True
+      End
+      Begin MenuItem FileSave
+         SpecialMenu = 0
+         Text = "Save"
+         Index = -2147483648
+         ShortcutKey = "S"
+         Shortcut = "Cmd+S"
+         MenuModifier = True
+         AutoEnable = True
+         Visible = True
+      End
+      Begin MenuItem FileQuitSeparator
+         SpecialMenu = 0
+         Text = "-"
+         Index = -2147483648
          AutoEnable = True
          Visible = True
       End
