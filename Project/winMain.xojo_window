@@ -34,10 +34,10 @@ Begin TPWindow winMain
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   237
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
       PanelCount      =   2
       Panels          =   ""
@@ -46,7 +46,7 @@ Begin TPWindow winMain
       TabPanelIndex   =   0
       Top             =   20
       Transparent     =   False
-      Value           =   0
+      Value           =   1
       Visible         =   True
       Width           =   343
       Begin ccDetails ctlDetails
@@ -354,10 +354,38 @@ End
 		  lbImages.Cell(lbImages.ListIndex, 0) = sName
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub UpdateProperties(oImg as Data.Image)
+		  if moSelection = nil then return
+		  
+		  // Ensure we're working with the same image
+		  if moSelection.sName <> oImg.sName then return
+		  
+		  // Update current selection
+		  moSelection = oImg
+		  if lbImages.ListIndex > -1 then
+		    lbImages.RowTag(lbImages.ListIndex) = moSelection
+		    
+		  end
+		  
+		  // Store it into the document
+		  for i as Integer = oDoc.aroImages.Ubound downto 0
+		    if oDoc.aroImages(i).sName = moSelection.sName then
+		      oDoc.aroImages(i) = moSelection
+		      exit for i
+		      
+		    end
+		    
+		  next i
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag Events lbImages
 	#tag Event
 		Sub Change()
+		  // Always stop that timer
+		  ctlDetails.StopTimer
+		  
 		  // Loading protection
 		  if me.Enabled = false then return
 		  
@@ -381,6 +409,9 @@ End
 		  end
 		  
 		  HandleEnabledState
+		  
+		  // Always stop that timer
+		  ctlDetails.StopTimer
 		End Sub
 	#tag EndEvent
 #tag EndEvents

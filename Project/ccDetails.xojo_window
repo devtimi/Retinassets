@@ -14,10 +14,10 @@ Begin ContainerControl ccDetails
    HelpTag         =   ""
    InitialParent   =   ""
    Left            =   0
-   LockBottom      =   False
-   LockLeft        =   False
-   LockRight       =   False
-   LockTop         =   False
+   LockBottom      =   True
+   LockLeft        =   True
+   LockRight       =   True
+   LockTop         =   True
    TabIndex        =   0
    TabPanelIndex   =   0
    TabStop         =   True
@@ -37,7 +37,7 @@ Begin ContainerControl ccDetails
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   0
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -59,7 +59,7 @@ Begin ContainerControl ccDetails
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   78
+      Width           =   58
    End
    Begin TextField txtName
       AcceptTabs      =   False
@@ -104,6 +104,279 @@ Begin ContainerControl ccDetails
       Visible         =   True
       Width           =   252
    End
+   Begin GroupBox grpSource
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   "Source"
+      Enabled         =   True
+      Height          =   100
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   1
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   33
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   341
+      Begin Label lbl1x
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   21
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   2
+         Selectable      =   False
+         TabIndex        =   0
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "1x src:"
+         TextAlign       =   2
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   63
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   57
+      End
+      Begin TextField txt1x
+         AcceptTabs      =   False
+         Alignment       =   0
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         CueText         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   22
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   90
+         LimitText       =   0
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Mask            =   ""
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   2
+         TabIndex        =   1
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   62
+         Transparent     =   False
+         Underline       =   False
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   232
+      End
+      Begin Label lbl2x
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   21
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   2
+         Selectable      =   False
+         TabIndex        =   2
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "2x src:"
+         TextAlign       =   2
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   96
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   56
+      End
+      Begin TextField txt2x
+         AcceptTabs      =   False
+         Alignment       =   0
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         CueText         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   22
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpSource"
+         Italic          =   False
+         Left            =   89
+         LimitText       =   0
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Mask            =   ""
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   2
+         TabIndex        =   3
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   95
+         Transparent     =   False
+         Underline       =   False
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   232
+      End
+   End
+   Begin GroupBox grpCSS
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   "Custom CSS"
+      Enabled         =   True
+      Height          =   186
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   1
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   7
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   145
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   341
+      Begin TextArea txtCSS
+         AcceptTabs      =   False
+         Alignment       =   0
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   True
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   130
+         HelpTag         =   ""
+         HideSelection   =   True
+         Index           =   -2147483648
+         InitialParent   =   "grpCSS"
+         Italic          =   False
+         Left            =   21
+         LimitText       =   0
+         LineHeight      =   0.0
+         LineSpacing     =   1.1999999999999999555911
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Mask            =   ""
+         Multiline       =   True
+         ReadOnly        =   False
+         Scope           =   2
+         ScrollbarHorizontal=   False
+         ScrollbarVertical=   True
+         Styled          =   False
+         TabIndex        =   0
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextColor       =   &c00000000
+         TextFont        =   "#App.kMonospacedFont"
+         TextSize        =   11.0
+         TextUnit        =   0
+         Top             =   181
+         Transparent     =   False
+         Underline       =   False
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   301
+      End
+   End
+   Begin Timer tmrSaveCSS
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Mode            =   0
+      Period          =   500
+      Scope           =   2
+      TabPanelIndex   =   0
+   End
 End
 #tag EndWindow
 
@@ -111,6 +384,9 @@ End
 	#tag Method, Flags = &h0
 		Sub LoadImage(oImg as Data.Image)
 		  // Clear UI
+		  txt1x.Text = ""
+		  txt2x.Text = ""
+		  txtCSS.Text = ""
 		  txtName.Text = ""
 		  
 		  // Store image
@@ -118,6 +394,9 @@ End
 		  if moImage = nil then return
 		  
 		  // Load UI
+		  txt1x.Text = oImg.s1x
+		  txt2x.Text = oImg.s2x
+		  txtCSS.Text = oImg.sCSS
 		  txtName.Text = oImg.sName
 		End Sub
 	#tag EndMethod
@@ -129,9 +408,29 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub StopTimer()
+		  tmrSaveCSS.Mode = Timer.ModeOff
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub UpdateProperties()
+		  moImage.s1x = Trim(txt1x.Text)
+		  moImage.s2x = Trim(txt2x.Text)
+		  moImage.sCSS = Trim(txtCSS.Text)
+		  
+		  RaiseEvent UpdateProperties(moImage)
+		End Sub
+	#tag EndMethod
+
 
 	#tag Hook, Flags = &h0
 		Event RequestName(sName as String)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event UpdateProperties(oImg as Data.Image)
 	#tag EndHook
 
 
@@ -176,6 +475,77 @@ End
 		    RaiseEvent RequestName(sTest)
 		    
 		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txt1x
+	#tag Event
+		Function KeyDown(Key As String) As Boolean
+		  dim iAsc as Integer = asc(Key)
+		  
+		  // Return or Enter
+		  if iAsc = 13 or iAsc = 3 then
+		    UpdateProperties
+		    return true
+		    
+		  end
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub LostFocus()
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  UpdateProperties
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txt2x
+	#tag Event
+		Function KeyDown(Key As String) As Boolean
+		  dim iAsc as Integer = asc(Key)
+		  
+		  // Return or Enter
+		  if iAsc = 13 or iAsc = 3 then
+		    UpdateProperties
+		    return true
+		    
+		  end
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub LostFocus()
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  UpdateProperties
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtCSS
+	#tag Event
+		Sub LostFocus()
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  UpdateProperties
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub TextChange()
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  tmrSaveCSS.Reset
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events tmrSaveCSS
+	#tag Event
+		Sub Action()
+		  UpdateProperties
 		End Sub
 	#tag EndEvent
 #tag EndEvents

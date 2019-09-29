@@ -40,6 +40,11 @@ Inherits Application
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"Ctrl+Q"
 	#tag EndConstant
 
+	#tag Constant, Name = kMonospacedFont, Type = String, Dynamic = False, Default = \"", Scope = Public
+		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"Menlo"
+		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"Courier New"
+	#tag EndConstant
+
 
 	#tag ViewBehavior
 	#tag EndViewBehavior
