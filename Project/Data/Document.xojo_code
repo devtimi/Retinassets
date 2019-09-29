@@ -68,6 +68,56 @@ Protected Class Document
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function GenerateCSS() As String
+		  dim ars1XCSS() as String
+		  dim ars2XCSS() as String
+		  
+		  for each oImg as Data.Image in aroImages
+		    // 1x CSS
+		    ars1XCSS.Append("#" + oImg.sName + " {")
+		    ars1XCSS.Append(kTab + "background: url('" + oImg.s1x + "') no-repeat;")
+		    ars1XCSS.Append(kTab + "height: " + oImg.sHeight + "px;")
+		    ars1XCSS.Append(kTab + "width: " + oImg.sWidth + "px;")
+		    ars1XCSS.Append("}" + EndOfLine)
+		    
+		    // 2x CSS
+		    ars2XCSS.Append("#" + oImg.sName + " {")
+		    ars2XCSS.Append(kTab + "background: url('" + oImg.s2x + "') no-repeat;")
+		    ars2XCSS.Append(kTab + "background-size: contain;")
+		    ars2XCSS.Append("}" + EndOfLine)
+		    
+		  next oImg
+		  
+		  dim arsData() as String
+		  arsData.Append("/* Images */")
+		  
+		  // Copy in 1x CSS
+		  for i as Integer = 0 to ars1XCSS.Ubound
+		    arsData.Append(ars1XCSS(i))
+		    
+		  next i
+		  
+		  // HiDPI Media Query
+		  arsData.Append("/* High Resolution Images */")
+		  arsData.Append("@media" + kTab + "only screen and (-webkit-min-device-pixel-ratio:1.3),")
+		  arsData.Append(kTab + kTab + "only screen and (-o-min-device-pixel-ratio:13 / 10),")
+		  arsData.Append(kTab + kTab + "only screen and (min-resolution:120dpi) {")
+		  
+		  // Now the 2x CSS
+		  for i as Integer = 0 to ars2XCSS.Ubound
+		    arsData.Append(kTab + ars2XCSS(i))
+		    
+		  next i
+		  
+		  // End HiDPI Media Query
+		  arsData.Append("}")
+		  
+		  // Join it into one string
+		  return Join(arsData, EndOfLine)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function NewImage() As Data.Image
 		  // Create the image
 		  dim oNew as new Data.Image
@@ -103,6 +153,10 @@ Protected Class Document
 	#tag EndProperty
 
 
+	#tag Constant, Name = kTab, Type = String, Dynamic = False, Default = \"\t", Scope = Private
+	#tag EndConstant
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Name"
@@ -135,11 +189,6 @@ Protected Class Document
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="aroImages()"
-			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
