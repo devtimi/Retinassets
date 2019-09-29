@@ -264,6 +264,7 @@ End
 		    
 		  end
 		  
+		  lbImages.Enabled = false
 		  lbImages.DeleteAllRows
 		  
 		  for each oImg as Data.Image in oDoc.aroImages
@@ -277,6 +278,8 @@ End
 		    end
 		    
 		  next oImg
+		  
+		  lbImages.Enabled = true
 		End Sub
 	#tag EndMethod
 
@@ -311,6 +314,10 @@ End
 	#tag EndMethod
 
 
+	#tag Property, Flags = &h21
+		Private moSelection As Data.Image
+	#tag EndProperty
+
 	#tag Property, Flags = &h0
 		oDoc As Data.Document
 	#tag EndProperty
@@ -318,25 +325,57 @@ End
 
 #tag EndWindowCode
 
+#tag Events ctlDetails
+	#tag Event
+		Sub RequestName(sName as String)
+		  // Ensure it's unique
+		  for i as Integer = (lbImages.ListCount - 1) downto 0
+		    dim oTag as Data.Image = lbImages.RowTag(i)
+		    if oTag <> nil and sName = oTag.sName then
+		      Beep
+		      Alert(sName + " Exists", "Image names must be unique in order to properly write the CSS for HiDPI.")
+		      return
+		      
+		    end
+		    
+		  next i
+		  
+		  // Find the selection item
+		  for i as Integer = oDoc.aroImages.Ubound downto 0
+		    if oDoc.aroImages(i).sName = moSelection.sName then
+		      // This is the one to update
+		      oDoc.aroImages(i).sName = sName
+		      
+		    end
+		    
+		  next i
+		  
+		  // Update the list display
+		  lbImages.Cell(lbImages.ListIndex, 0) = sName
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events lbImages
 	#tag Event
 		Sub Change()
-		  // No Selection
-		  if me.ListIndex < 0 then
-		    ppDetails.Value = 0
-		    HandleEnabledState
-		    return
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  if me.ListIndex > -1 then
+		    moSelection = me.RowTag(me.ListIndex)
+		    
+		  else
+		    moSelection = nil
 		    
 		  end
 		  
 		  // Load selection
-		  dim oTag as Data.Image = me.RowTag(me.ListIndex)
-		  if oTag <> nil then
-		    ctlDetails.LoadImage(oTag)
+		  if moSelection <> nil then
+		    ctlDetails.LoadImage(moSelection)
 		    ppDetails.Value = 1
 		    
 		  else
-		    // Tag was nil?
+		    // No Selection
 		    ppDetails.Value = 0
 		    
 		  end
@@ -348,12 +387,21 @@ End
 #tag Events sgAddDelete
 	#tag Event
 		Sub Action(itemIndex as integer)
+		  // Steal focus to cause data save
+		  me.SetFocus
+		  
 		  select case itemIndex
 		  case 0
 		    HandleAdd
+		    ctlDetails.SetFocusName
 		    
 		  case 1
 		    HandleDelete
+		    
+		    // Set selection to none explicitly to cause the Changed event
+		    lbImages.ListIndex = -1
+		    lbImages.SetFocus
+		    
 		    
 		  end select
 		  

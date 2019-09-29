@@ -122,6 +122,18 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub SetFocusName()
+		  // Set the focus on the name field
+		  txtName.SetFocus
+		End Sub
+	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event RequestName(sName as String)
+	#tag EndHook
+
 
 	#tag Property, Flags = &h21
 		Private moImage As Data.Image
@@ -130,6 +142,43 @@ End
 
 #tag EndWindowCode
 
+#tag Events txtName
+	#tag Event
+		Function KeyDown(Key As String) As Boolean
+		  dim iAsc as Integer = asc(Key)
+		  
+		  // Return or Enter
+		  if iAsc = 13 or iAsc = 3 then
+		    dim sTest as String = Trim(me.Text)
+		    
+		    // Request name if new
+		    if sTest <> moImage.sName then
+		      me.Enabled = false
+		      RaiseEvent RequestName(sTest)
+		      me.Enabled = true
+		      
+		    end
+		    
+		    return true
+		    
+		  end
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub LostFocus()
+		  // Loading protection
+		  if me.Enabled = false then return
+		  
+		  dim sTest as String = Trim(me.Text)
+		  
+		  // Request name if new
+		  if sTest <> moImage.sName then
+		    RaiseEvent RequestName(sTest)
+		    
+		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"
