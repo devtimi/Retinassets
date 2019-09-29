@@ -631,12 +631,19 @@ End
 		  if iAsc = 13 or iAsc = 3 then
 		    dim sTest as String = Trim(me.Text)
 		    
-		    // Request name if new
+		    // Is new?
 		    if sTest <> moImage.sName then
+		      // Is valid?
+		      if Data.Image.ValidName(sTest) = false then
+		        Beep
+		        
+		      else
 		      me.Enabled = false
 		      RaiseEvent RequestName(sTest)
 		      me.Enabled = true
 		      
+		    end
+		    
 		    end
 		    
 		    return true
