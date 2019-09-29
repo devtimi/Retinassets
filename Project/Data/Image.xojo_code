@@ -1,5 +1,38 @@
 #tag Class
 Protected Class Image
+	#tag Method, Flags = &h0
+		Sub Constructor()
+		  // New item
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(jsRep as JSONItem)
+		  // Create from JSONItem
+		  s1x = jsRep.Lookup("s1x", "")
+		  s2x = jsRep.Lookup("s2x", "")
+		  sCSS = jsRep.Lookup("sCSS", "")
+		  sHeight = jsRep.Lookup("sHeight", "")
+		  sName = jsRep.Lookup("sName", "")
+		  sWidth = jsRep.Lookup("sWidth", "")
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ToJSON() As JSONItem
+		  dim jsRep as new JSONItem
+		  jsRep.Value("s1x") = s1x
+		  jsRep.Value("s2x") = s2x
+		  jsRep.Value("sCSS") = sCSS
+		  jsRep.Value("sHeight") = sHeight
+		  jsRep.Value("sName") = sName
+		  jsRep.Value("sWidth") = sWidth
+		  
+		  return jsRep
+		End Function
+	#tag EndMethod
+
+
 	#tag Property, Flags = &h0
 		s1x As String
 	#tag EndProperty

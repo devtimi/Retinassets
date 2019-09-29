@@ -47,6 +47,27 @@ Protected Class Document
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub FromJSON(jsRep as JSONItem)
+		  // Read a JSONItem into a document
+		  dim jsImages as JSONItem = jsRep.Lookup("Images", nil)
+		  if jsImages = nil then return
+		  
+		  dim iMax as Integer = jsImages.Count - 1
+		  if iMax < 0 then return
+		  
+		  for i as Integer = 0 to iMax
+		    dim jsThisImage as JSONItem = jsImages.Value(i)
+		    if jsThisImage <> nil then
+		      dim oImg as new Data.Image(jsThisImage)
+		      aroImages.Append(oImg)
+		      
+		    end
+		    
+		  next i
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function NewImage() As Data.Image
 		  // Create the image
 		  dim oNew as new Data.Image
@@ -57,6 +78,22 @@ Protected Class Document
 		  
 		  // Pass it back
 		  return oNew
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ToJSON() As JSONItem
+		  dim jsRep as new JSONItem
+		  
+		  dim jsImages as new JSONItem
+		  for each oImg as Data.Image in aroImages
+		    jsImages.Append(oImg.ToJSON)
+		    
+		  next oImg
+		  
+		  jsRep.Value("Images") = jsImages
+		  
+		  return jsRep
 		End Function
 	#tag EndMethod
 
