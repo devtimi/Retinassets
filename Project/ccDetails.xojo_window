@@ -671,6 +671,32 @@ End
 		Function KeyDown(Key As String) As Boolean
 		  dim iAsc as Integer = asc(Key)
 		  
+		  // Handle automatic path generation
+		  dim bDelete as Boolean
+		  dim sMe as String = Trim(me.Text)
+		  dim s2x as String = Trim(txt2x.Text)
+		  dim sNew as String = Replace(sMe + Key, "1x", "2x")
+		  
+		  // Handle delete
+		  if iAsc = 8 then
+		    bDelete = true
+		    sNew = Replace(sMe, "1x", "2x")
+		    sNew = sNew.Left(sNew.Len - 1)
+		    
+		  end
+		  
+		  // Only update the 2x if:
+		  //  2x is empty -OR-
+		  //  2x = me so far -OR-
+		  //  2x = replaced value + Key
+		  //  Delete key and (2x - 1) matches delete value
+		  if s2x = "" or s2x = sMe or _
+		    s2x = sNew.Left(sNew.Len - 1) or _
+		    (bDelete = true and s2x.Left(s2x.Len - 1) = sNew) then
+		    txt2x.Text = Trim(sNew)
+		    
+		  end
+		  
 		  // Return or Enter
 		  if iAsc = 13 or iAsc = 3 then
 		    UpdateProperties
